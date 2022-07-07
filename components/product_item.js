@@ -22,7 +22,7 @@ const ProductItem = ({item})=>{
                     <p>Location</p>
                     <p>Date:10/6/2022</p>
                 </div>
-                <p className={styles.product_details_text}>{item.description.slice(0,30)}...</p>  
+                <p className={styles.product_details_text}>{item.description.slice(0,50)}...</p>  
                 </div>
             </div>
 }

@@ -1,15 +1,25 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Product from '../components/products';
 
 
 
-// getStaticProps() 
 
 export default function Home({productsData, productItem}) {
+
+  const [presentCategory, setCategory] = useState(''); 
+
+  const changeCategory =(e)=>{
+    setCategory(e.target.value)
+  }
+
+  useEffect(()=>{
+
+  }, [presentCategory])
+
   return (
     <div className={styles.container}>
-      {console.log(productsData)}
       <Head>
         <title>Hurray!! First NextJs App</title>
       </Head>
@@ -18,15 +28,9 @@ export default function Home({productsData, productItem}) {
           <div className={styles.leftcontainer_content}>
             <h3>Filters</h3>
             <hr className={styles.underline}></hr>
-              <select className={styles.productfilters}>
+              <select className={styles.productfilters} onChange={changeCategory}>
                 <option>Categories</option>
                 {productsData.map((item, index) => <option key={index}>{item}</option>)}
-              </select>
-              <select className={styles.productfilters}>
-                <option>State</option>
-              </select>
-              <select className={styles.productfilters}>
-                <option>City</option>
               </select>
           </div>
         </div>
@@ -36,7 +40,7 @@ export default function Home({productsData, productItem}) {
           <div className={styles.product}>
             <h3>Product Name</h3>
             <hr className={styles.underline}></hr>
-            <Product products={productItem}/>
+            <Product products={productItem} presentCategory={presentCategory}/>
         </div>
         </div>
       </div>

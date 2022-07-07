@@ -34,10 +34,11 @@
   background: #232323;
   color:#fff;
   padding:10px;
-  width:80%;
+  width:85%;
   margin-top:20px;
   margin-bottom:10px;
 }
+
 .productfilters option{
   padding:5px;
 }
@@ -89,7 +90,7 @@
   padding:15px;
   border-radius:5px;
   color:#FFFFFF80;
-  min-width:250px;
+  min-width:300px;
 }
 
 .product_item_name_container{
@@ -109,7 +110,6 @@
 }
 
 .product_item_name p:not(:first-child){
-  margin-top:8px;
   margin-bottom:5px;
 }
 
