@@ -14,10 +14,6 @@ export default function Home({productsData, productItem}) {
     setCategory(e.target.value)
   }
 
-  useEffect(()=>{
-
-  }, [presentCategory])
-
   return (
     <div className={styles.container}>
       <Head>
