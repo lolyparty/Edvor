@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images:{
-    domains:["i.postimg.cc"],
+    domains:["https://fakestoreapi.com"],
     loader:"custom",
     path:'/' 
   }

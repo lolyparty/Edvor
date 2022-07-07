@@ -4,9 +4,12 @@ import Product from '../components/products';
 
 
 
-export default function Home() {
+// getStaticProps() 
+
+export default function Home({productsData, productItem}) {
   return (
     <div className={styles.container}>
+      {console.log(productsData)}
       <Head>
         <title>Hurray!! First NextJs App</title>
       </Head>
@@ -16,10 +19,8 @@ export default function Home() {
             <h3>Filters</h3>
             <hr className={styles.underline}></hr>
               <select className={styles.productfilters}>
-                <option>Products</option>
-                <option>Products</option>
-                <option>Products</option>
-                <option>Products</option>
+                <option>Categories</option>
+                {productsData.map((item, index) => <option key={index}>{item}</option>)}
               </select>
               <select className={styles.productfilters}>
                 <option>State</option>
@@ -35,10 +36,25 @@ export default function Home() {
           <div className={styles.product}>
             <h3>Product Name</h3>
             <hr className={styles.underline}></hr>
-            <Product />
+            <Product products={productItem}/>
         </div>
         </div>
       </div>
     </div>
   )
 }
+
+export const getStaticProps = async (context) => {
+  const res = await fetch('https://fakestoreapi.com/products/categories');
+  const data = await res.json();
+
+  const response = await fetch('https://fakestoreapi.com/products');
+  const productData = await response.json();
+  return {
+    props: {
+      productsData: data,
+      productItem: productData
+    },
+  };
+}
+
