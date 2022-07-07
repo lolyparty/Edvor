@@ -76,8 +76,7 @@
   padding:15px;
   display:flex;
   overflow-x: auto;
-  gap:10px;
-  /* white-space: nowrap; */
+  gap:20px;
   overflow-y: hidden;
 }
 
@@ -90,12 +89,16 @@
   padding:10px;
   border-radius:5px;
   color:#FFFFFF80;
-  margin-left:5px;
-  margin-right:5px;
 }
 
 .product_item_name_container{
   display:flex;
+  gap:10px;
+}
+
+.prodyct_item_picture{
+  position:relative;
+  width:50%;
 }
 
 .product_item_name p{
